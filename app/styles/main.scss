@@ -7,6 +7,7 @@
 
 /* Space out content a bit */
 body {
+  
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
@@ -25,11 +26,8 @@ body {
   border-bottom: .05rem solid #e5e5e5;
 }
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 3rem;
+.carousel-item img {
+  background-image: url('https://via.placeholder.com/350x150');
 }
 
 /* Custom page footer */
