@@ -10,6 +10,7 @@ body {
   
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  background-color: whitesmoke;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -46,7 +47,7 @@ a:hover {
 
 #carouselSlide, #carte {
   padding-bottom: 1rem;
-  border-bottom: .05rem dashed #e5e5e5;
+  border-bottom: .05rem dashed black;
 }
 #carte img {
   height: 400px;
