@@ -43,6 +43,22 @@ a:hover {
   color : #c74d97;
 }
 
+
+#carouselSlide, #carte {
+  padding-bottom: 1rem;
+  border-bottom: .05rem dashed #e5e5e5;
+}
+#carte img {
+  height: 400px;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+#reservation {
+  border: 1px dashed black;
+  text-align: center;
+  margin: 10px;
+}
 /* Custom page footer */
 .footer {
   padding-top: 1.5rem;
