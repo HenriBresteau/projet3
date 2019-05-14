@@ -44,8 +44,44 @@ a:hover {
   color : #c74d97;
 }
 
+// ---- DIAPORAMA ----//
+.item {
+  margin:10px;
+  background-color:#fff;
+  box-shadow:0 15px 35px #3232321a,0 5px 15px #0000001a;
+  transition:transform .3s;
+  transform:translate3d(0,-1px,0);
+ }
+ .item:hover {
+  transform:translate3d(0,-10px,0);
+ }
+ .item img {
+  display:block;
+  width:100%;
+  height:auto;
+ }
+ .item-body {
+  padding:25px;
+ }
+ .item-titre {
+  font-size:24px;
+  margin-bottom:5px;
+  font-weight:700;
+  color:#232323;
+ }
+ .item-description {
+  color:#585858;
+ }
+ .diaporama,
+ .items {
+  position:relative;
+ }
+ .diaporama {
+  margin-bottom:30px;
+ }
 
-#carouselSlide, #carte {
+// ---- CARTE ----//
+#carte {
   padding-bottom: 1rem;
   border-bottom: .05rem dashed black;
 }
@@ -55,6 +91,7 @@ a:hover {
   padding-top: 1rem;
 }
 
+// ---- RESERVATION ----//
 #reservation {
   border: 1px dashed black;
   text-align: center;
