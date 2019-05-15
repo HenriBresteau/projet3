@@ -72,14 +72,51 @@ a:hover {
  .item-description {
   color:#585858;
  }
- .diaporama,
- .items {
-  position:relative;
- }
- .diaporama {
+
+ .carousel1 {
   margin-bottom:30px;
  }
 
+.carousel{
+  position : relative;
+  overflow: hidden;
+}
+.carousel_container{
+  transition: transform 0.3s;
+  transform:  translate3d(0,0,0);
+}
+.carousel_container::after {
+  content:'';
+  clear: both;
+  display: table;
+
+}
+.carousel_item{
+  float : left;
+}
+.carousel_next, .carousel_prev {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fff url(../images/right.png)center center no-repeat;
+  background-size: 20px 20px;
+  border-radius: 50%;
+  top: 50%;
+  margin-top :-20px;
+  right: 0px;
+  box-shadow:0 15px 35px #3232321a,0 5px 15px #0000001a;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel_next:hover, .carousel_prev:hover {
+  transform: scale(1.2);
+}
+.carousel_prev{
+  background-image: url(../images/left.png);
+  right: auto;
+  left: 0px;
+}
 // ---- CARTE ----//
 #carte {
   padding-bottom: 1rem;
