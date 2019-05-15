@@ -22,8 +22,9 @@ class Carousel {
             return item;
         });
         this.setStyle();
-        this.createNavigation();
+        
         //Evenements
+        this.createNavigation();
         this.root/addEventListener('keyup', e => {
             if(e.key ==='ArrowRight' || e.key ==='Right'){
                 this.next();
