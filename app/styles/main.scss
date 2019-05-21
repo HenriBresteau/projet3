@@ -1,189 +1,218 @@
 .browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
 /* Space out content a bit */
 body {
-  
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  background-color: whitesmoke;
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: whitesmoke;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
-  padding-right: 1rem;
-  padding-left: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 /* Custom page header */
 .header {
-  padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
+    padding-bottom: 1rem;
+    border-bottom: .05rem solid #e5e5e5;
 }
 
 .header img {
-  height: 100px;
+    height: 100px;
 }
 
 .nav {
-  margin-top: 47px;
+    margin-top: 47px;
 }
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  background-color: #8478b8 ;
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: #8478b8;
 }
+
 a {
-  color:#8478b8; 
+    color: #8478b8;
 }
+
 a:hover {
-  color : #c74d97;
+    color: #c74d97;
 }
 
 // ---- DIAPORAMA ----//
 .item {
-  margin:10px;
-  background-color:#fff;
-  box-shadow:0 15px 35px #3232321a,0 5px 15px #0000001a;
-  transition:transform .3s;
-  transform:translate3d(0,-1px,0);
- }
- .item:hover {
-  transform:translate3d(0,-10px,0);
- }
- .item img {
-  display:block;
-  width:100%;
-  height:auto;
- }
- .item-body {
-  padding:25px;
- }
- .item-titre {
-  font-size:24px;
-  margin-bottom:5px;
-  font-weight:700;
-  color:#232323;
- }
- .item-description {
-  color:#585858;
- }
-
- .carousel1 {
-  margin-bottom:30px;
- }
-
-.carousel{
-  position : relative;
-  overflow: hidden;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+    transition: transform .3s;
+    transform: translate3d(0, -1px, 0);
 }
-.carousel_container{
-  transition: transform 0.3s;
-  transform:  translate3d(0,0,0);
+
+.item:hover {
+    transform: translate3d(0, -10px, 0);
 }
+
+.item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.item-body {
+    padding: 25px;
+}
+
+.item-titre {
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #232323;
+}
+
+.item-description {
+    color: #585858;
+}
+
+.carousel1 {
+    margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel_container {
+    transition: transform 0.3s;
+    transform: translate3d(0, 0, 0);
+}
+
 .carousel_container::after {
-  content:'';
-  clear: both;
-  display: table;
+    content: '';
+    clear: both;
+    display: table;
 
 }
-.carousel_item{
-  float : left;
-}
-.carousel_next, .carousel_prev {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #fff url(../images/right.png)center center no-repeat;
-  background-size: 20px 20px;
-  border-radius: 50%;
-  top: 50%;
-  margin-top :-20px;
-  right: 0px;
-  box-shadow:0 15px 35px #3232321a,0 5px 15px #0000001a;
-  cursor: pointer;
-  transition: transform 0.3s;
+
+.carousel_item {
+    float: left;
+    -webkit-transition-duration: 2s;
+    -webkit-transition-timing-function: ease;
+    transition-duration: 2s;
+    transition-timing-function: ease;
 }
 
-.carousel_next:hover, .carousel_prev:hover {
-  transform: scale(1.2);
+.carousel_next,
+.carousel_prev {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #fff url(../images/right.png)center center no-repeat;
+    background-size: 20px 20px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -20px;
+    right: 0px;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
-.carousel_prev{
-  background-image: url(../images/left.png);
-  right: auto;
-  left: 0px;
+
+.carousel_next:hover,
+.carousel_prev:hover {
+    transform: scale(1.2);
 }
+
+.carousel_prev {
+    background-image: url(../images/left.png);
+    right: auto;
+    left: 0px;
+}
+
 // ---- CARTE ----//
 #carte {
-  padding-bottom: 1rem;
-  border-bottom: .05rem dashed black;
+    padding-bottom: 1rem;
+    border-bottom: .05rem dashed black;
 }
+
 #carte img {
-  height: 400px;
-  width: 100%;
-  padding-top: 1rem;
+    height: 400px;
+    width: 100%;
+    padding-top: 1rem;
 }
 
 // ---- RESERVATION ----//
 #reservation {
-  border: 1px dashed black;
-  text-align: center;
-  margin: 10px;
+    border: 1px dashed black;
+    text-align: center;
+    margin: 10px;
 }
+
 /* Custom page footer */
 .footer {
-  padding-top: 1.5rem;
-  color: #777;
-  border-top: .05rem solid #e5e5e5;
+    padding-top: 1.5rem;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
 }
 
 /* Customize container */
 @media (min-width: 48em) {
-  .container {
-    max-width: 46rem;
-  }
+    .container {
+        max-width: 46rem;
+    }
 }
-.container-narrow > hr {
-  margin: 2rem 0;
+
+.container-narrow>hr {
+    margin: 2rem 0;
 }
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
+    text-align: center;
+    border-bottom: .05rem solid #e5e5e5;
 }
+
 .jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
+    padding: .75rem 1.5rem;
+    font-size: 1.5rem;
 }
 
 /* Supporting marketing content */
 .marketing {
-  margin: 3rem 0;
+    margin: 3rem 0;
 }
-.marketing p + h4 {
-  margin-top: 1.5rem;
+
+.marketing p+h4 {
+    margin-top: 1.5rem;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 48em) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 2rem;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 2rem;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
 }
