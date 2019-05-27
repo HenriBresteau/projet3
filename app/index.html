@@ -1,136 +1,149 @@
 <!doctype html>
 <html class="no-js" lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Le site référence pour louer un vélo sur Lyon. Réserver dès maintenant votre vélo sur le site">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Vélock - Location de vélo</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" href="images/iconlogo.ico" type="image/png">
-    <!-- build:css styles/vendor.css -->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
-    <!-- endbuild -->
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/modernizr.js -->
-    <script src="scripts/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if IE]>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Le site référence pour louer un vélo sur Lyon. Réserver dès maintenant votre vélo sur le site">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vélock - Location de vélo</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="images/iconlogo.ico" type="image/png">
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- endbuild -->
+  <!-- build:js scripts/modernizr.js -->
+  <script src="scripts/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills float-right">
-          <li class="nav-item">
-            <a href="#" class="nav-link active">Présentation</a>
-          </li>
-          <li>
-            <a href="#carte" class="nav-link">Carte</a>
-          </li>
-          <li>
-            <a href="#reservation" class="nav-link">Réservation</a>
-          </li>
-        </ul>
-        <img src="images/logo.png" alt="logo Vélock">
-      </div>
-      
-      <div id="carousel1">
-        <div class="item">
-          <div class="item-image">
-            <img src="images/slide1.png" alt="Premiere slide">
-          </div>
-          <div class="item-body">
-            <div class="item-titre">
-              Mon Titre 1
-            </div>
-            <div class="item-description">
-              C'est une description temporaire
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="images/slide2.jpg" alt="Deuxieme slide">
-          </div>
-          <div class="item-body">
-            <div class="item-titre">
-              Mon Titre 2
-            </div>
-            <div class="item-description">
-              C'est une description temporaire
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="images/slide3.jpg" alt="Premiere slide">
-          </div>
-          <div class="item-body">
-            <div class="item-titre">
-              Mon Titre 3
-            </div>
-            <div class="item-description">
-              C'est une description temporaire
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="images/slide1.png" alt="Quatre slide">
-          </div>
-          <div class="item-body">
-            <div class="item-titre">
-              Mon Titre 4
-            </div>
-            <div class="item-description">
-              C'est une description temporaire
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="images/slide2.jpg" alt="Premiere slide">
-          </div>
-          <div class="item-body">
-            <div class="item-titre">
-              Mon Titre 5
-            </div>
-            <div class="item-description">
-              C'est une description temporaire
-            </div>
-          </div>
-        </div>          
-        
-        
-      </div>
-
-      <div id="carte">
-          <img src="https://user.oc-static.com/upload/2018/01/05/15151407813526_velov.png " alt="carte">
-      </div>
-      <div id="reservation">
-        <h3> Réservation :</h3>
-        <p><span class="adresse"> Adresse : 10 rue de la Liberté</span></p>
-        <p><span class="place"> 2 places</span></p>
-        <p><span class="diponible">10 vélos disponible</span></p>
-        <p><span class="nom"> Nom : </span></p>
-        <p><span class="prenom"> Prénom : </span></p>
-        <p><button type="button" class="btn btn-primary">Réserver</button></p>
-      </div>
-
-      <div class="footer">
-        <p>&copyHenri Bresteau</p>
-      </div>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Présentation</a>
+        </li>
+        <li>
+          <a href="#carte" class="nav-link">Carte</a>
+        </li>
+        <li>
+          <a href="#reservation" class="nav-link">Réservation</a>
+        </li>
+      </ul>
+      <img src="images/logo.png" alt="logo Vélock">
     </div>
-    <!-- build:js scripts/vendor.js -->
-    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- endbuild -->
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/carousel.js"></script>
-    <!-- endbuild -->
-  </body>
+
+    <div id="carousel1">
+      <div class="item">
+        <div class="item-image">
+          <img src="images/slide1.png" alt="Premiere slide">
+        </div>
+        <div class="item-body">
+          <div class="item-titre">
+            Mon Titre 1
+          </div>
+          <div class="item-description">
+            C'est une description temporaire
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-image">
+          <img src="images/slide2.jpg" alt="Deuxieme slide">
+        </div>
+        <div class="item-body">
+          <div class="item-titre">
+            Mon Titre 2
+          </div>
+          <div class="item-description">
+            C'est une description temporaire
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-image">
+          <img src="images/slide3.jpg" alt="Premiere slide">
+        </div>
+        <div class="item-body">
+          <div class="item-titre">
+            Mon Titre 3
+          </div>
+          <div class="item-description">
+            C'est une description temporaire
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-image">
+          <img src="images/slide1.png" alt="Quatre slide">
+        </div>
+        <div class="item-body">
+          <div class="item-titre">
+            Mon Titre 4
+          </div>
+          <div class="item-description">
+            C'est une description temporaire
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-image">
+          <img src="images/slide2.jpg" alt="Premiere slide">
+        </div>
+        <div class="item-body">
+          <div class="item-titre">
+            Mon Titre 5
+          </div>
+          <div class="item-description">
+            C'est une description temporaire
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id="carte">
+        <div id="mapid"></div>
+    </div>
+    <div id="reservation">
+      <h3> Réservation :</h3>
+      <p> Adresse : <span class="adresse"> </span></p>
+      <p>Nombre de places total : <span class="place"> </span>place(s)</p>
+      <p>Nombre de vélo disponible(s) : <span class="disponible"></span></p>
+      <p><span class="nom"> Nom : </span></p>
+      <p><span class="prenom"> Prénom : </span></p>
+      <p><button type="button" class="btn btn-primary">Réserver</button></p>
+    </div>
+
+    <div class="footer">
+      <p>&copyHenri Bresteau</p>
+    </div>
+  </div>
+  <!-- build:js scripts/vendor.js -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+  <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/carousel.js"></script>
+  <script src="scripts/carte.js"></script>
+  <!-- endbuild -->
+</body>
+
 </html>
