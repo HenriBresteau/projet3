@@ -18,14 +18,26 @@ oXhr.onload = function () {
             iconUrl: '../images/station.png',
             iconSize: [25, 32],
         });
+        if (data[i].status === 'CLOSED') {
+            data[i].status = 'Indisponible';
+            
+        }
+        else {
+            data[i].status = 'Disponible';
+        }
         let marker = L.marker([data[i].position.lat, data[i].position.lng], { icon: myIcon }).addTo(map);
-        marker.bindPopup('<h5>' + data[i].name + '</h5> <p>' + data[i].address + ' </p> <p> Etat de station : ' + data[i].status + '</p><p> Total places : ' + data[i].bike_stands + '</p>');
+        marker.bindPopup('<h5>' + data[i].name + '</h5> <p>' + data[i].address + ' </p> <p> Etat de station : <span class="indisponible">' + data[i].status + '</span></p><p> Total places : ' + data[i].bike_stands + '</p>');
         
-        
-        marker.addEventListener("click", function() {
+        marker.addEventListener("click", function () {
             afficherRéservation(i);
-            });
-        
+            if (data[i].status ==='Indisponible'){
+                document.querySelector('.indisponible').style.color= 'red';
+                document.getElementById('indispo').disabled = true;  
+            } else {
+                document.getElementById('indispo').disabled = false;
+            }
+        });
+
 
     }
     function afficherRéservation(i) {
