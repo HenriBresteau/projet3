@@ -150,9 +150,18 @@ a:hover {
     text-align: center;
     margin: 10px;
 }
+#from {
+    display: none;
+}
 
 #canvas {
-    border: 1px solid #000
+    border: 1px solid #000;
+    display: none;
+    animation: bounce 1s ease ;
+}
+@keyframes bounce{
+    from {transform: translateX(-60px);}
+    to   {transform: translateX(0px);}
 }
 
 /* Custom page footer */

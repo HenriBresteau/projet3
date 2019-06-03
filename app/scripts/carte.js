@@ -20,25 +20,37 @@ oXhr.onload = function () {
         });
         if (data[i].status === 'CLOSED') {
             data[i].status = 'Indisponible';
-            
+
         }
         else {
             data[i].status = 'Disponible';
         }
         let marker = L.marker([data[i].position.lat, data[i].position.lng], { icon: myIcon }).addTo(map);
         marker.bindPopup('<h5>' + data[i].name + '</h5> <p>' + data[i].address + ' </p> <p> Etat de station : <span class="indisponible">' + data[i].status + '</span></p><p> Total places : ' + data[i].bike_stands + '</p>');
-        
+
         marker.addEventListener("click", function () {
             afficherRéservation(i);
-            if (data[i].status ==='Indisponible'){
-                document.querySelector('.indisponible').style.color= 'red';
-                document.getElementById('indispo').disabled = true;  
-            } else {
-                document.getElementById('indispo').disabled = false;
-            }
+            rendreIndispoonible(i);
+            afficherCanvas();
         });
 
 
+    }
+    function afficherCanvas() {
+        var canvasElt = document.querySelector('canvas');
+        canvasElt.style.display = "initial";
+        canvasElt.style.backgroundColor = "lightgray";
+        var fromElt = document.getElementById('from');
+        fromElt.style.display = "initial";
+    }
+
+    function rendreIndispoonible(i) {
+        if (data[i].status === 'Indisponible') {
+            document.querySelector('.indisponible').style.color = 'red';
+            document.getElementById('reserver').disabled = true;
+        } else {
+            document.getElementById('reserver').disabled = false;
+        }
     }
     function afficherRéservation(i) {
         var adresseElt = document.querySelector('.adresse');
@@ -47,7 +59,18 @@ oXhr.onload = function () {
         placeElt.textContent = data[i].bike_stands;
         var disponibleElt = document.querySelector('.disponible');
         disponibleElt.textContent = data[i].available_bike_stands;
+        couleurDispo(i);
     };
+    function couleurDispo(i) {
+        console.log(data[i].available_bike_stands);
+        var disponibleElt = document.querySelector('.disponible');
+        if (data[i].available_bike_stands > 0) {
+            disponibleElt.style.color = "green";
+        } else {
+            disponibleElt.style.color = "red";
+            disponibleElt.style.fontWeight="600";
+        }
+    }
 
 };
 oXhr.onerror = function (data) {

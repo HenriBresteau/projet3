@@ -16,8 +16,9 @@ class CanvasObjet {
     }
 
     //Gestion des événements 
+    
     evenements() {
-        var self = this ;
+        var self = this;
         //Souris
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
@@ -29,7 +30,7 @@ class CanvasObjet {
             self.canvasResult()
         });
 
-            document.addEventListener("mouseup", function (e) {
+        document.addEventListener("mouseup", function (e) {
             self.draw = false;
         });
 
@@ -50,7 +51,7 @@ class CanvasObjet {
         }
     }
 
-    
+
 
     // Dessin du canvas
     canvasResult() {

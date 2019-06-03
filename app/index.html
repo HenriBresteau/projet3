@@ -15,10 +15,10 @@
   <!-- endbuild -->
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-   <link rel="stylesheet" href="styles/main.css">
-  
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="styles/main.css">
+
   <!-- endbuild -->
   <!-- build:js scripts/modernizr.js -->
   <script src="scripts/modernizr.js"></script>
@@ -116,26 +116,28 @@
     </div>
 
     <div id="carte">
-        <div id="mapid"></div>
+      <div id="mapid"></div>
     </div>
     <div id="reservation">
       <h3> Réservation :</h3>
       <p> Adresse : <span class="adresse"> </span></p>
       <p>Nombre de places total : <span class="place"> </span></p>
       <p>Nombre de vélo disponible(s) : <span class="disponible"></span></p>
-      <p><from>
-        <label for="nom">Nom : </label>
-        <input type="text" class="nom" placeholder="Votre nom..." id="nom"></br>
-        <label for="prenom">Prénom :</label>
-        <input type="text" class="prenom" placeholder="Votre prenom..." id="prenom"> 
-      </from>
-      </p>
       <p>
-        <button type="submit" class="btn btn-outline-primary" id="reserver"  >Réserver</button>
-        <button class="btn btn-outline-warning" type="reset" value="Reset" id="btn_clear">Tenter une signature plus jolie </button>
-      </p> 
+        <from id="from">
+          <label for="nom">Nom : </label>
+          <input type="text" class="nom" placeholder="Votre nom..." id="nom"></br>
+          <label for="prenom">Prénom :</label>
+          <input type="text" class="prenom" placeholder="Votre prenom..." id="prenom">
+        </from>
+      </p>
+
       <canvas id="canvas" width="350" height="150">Votre navigateur ne supporte pas le canvas.
       </canvas>
+      <p>
+        <button type="submit" class="btn btn-outline-primary" id="reserver">Réserver</button>
+        <button class="btn btn-outline-warning" type="reset" value="Reset" id="btn_clear">Effacer </button>
+      </p>
     </div>
 
     <div class="footer">
@@ -144,17 +146,18 @@
   </div>
   <!-- build:js scripts/vendor.js -->
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-   crossorigin=""></script>
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
   <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  
+
   <!-- endbuild -->
   <!-- build:js scripts/main.js -->
   <script src="scripts/carousel.js"></script>
   <script src="scripts/carte.js"></script>
   <script src="scripts/canvas.js"></script>
   <script src="scripts/local.js"></script>
+  <script src="scripts/session.js"></script>
   <!-- endbuild -->
 </body>
 

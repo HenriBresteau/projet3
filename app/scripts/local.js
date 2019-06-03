@@ -3,8 +3,10 @@ class Nomlocal {
         this.nomElt = document.getElementById('nom');
         this.prenomElt = document.getElementById('prenom');
         this.reserverElt = document.getElementById('reserver');
+        this.effacerElt = document.getElementById('btn_clear');
         this.stocker();
         this.lecture();
+        this.effacer();
     }
     stocker() {
         //if (localStorage && sessionStorage) {
@@ -26,7 +28,13 @@ class Nomlocal {
         var identite = JSON.parse(localStorage.getItem('iden'));
         this.nomElt.value = identite.nom;
         this.prenomElt.value = identite.prenom;
-        console.log('Vélo reserver à la station par ' + identite.nom + ' ' + identite.prenom);
+    }
+    effacer(){ 
+    this.effacerElt.addEventListener('click', () => {
+        this.nomElt.value ='';
+        this.prenomElt.value='';
+        return false;
+    })
     }
 }
 
