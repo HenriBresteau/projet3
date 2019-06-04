@@ -37,18 +37,13 @@ oXhr.onload = function () {
 
     }
     function afficherCanvas() {
-        var para = document.createElement("p");
-        var node = document.createTextNode("Signature : ");
-        para.appendChild(node);
-        var fElt = document.getElementById('from');
-        fElt.appendChild(para);
-
         var canvasElt = document.querySelector('canvas');
-
         canvasElt.style.display = "initial";
         canvasElt.style.backgroundColor = "lightgray";
         var fromElt = document.getElementById('from');
         fromElt.style.display = "initial";
+        var signatureElt = document.querySelector('#signature');
+        signatureElt.style.display = "initial";
     }
 
     function rendreIndispoonible(i) {
