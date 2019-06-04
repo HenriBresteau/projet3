@@ -68,8 +68,6 @@ class Carousel {
         //this.container.style.transform = 'translate3d(' + translateX + '%,0,0)';
         this.currentItem = index;
         this.reformatCss(this.currentItem);
-        console.log(this.currentItem);
-        console.log(this.items);
     }
     reformatCss(currentItem) {
         if (currentItem === 0) {

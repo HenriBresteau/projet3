@@ -1,3 +1,8 @@
+@font-face{
+    font-family: "sensation";
+    src: url("font/Sansation_Regular.ttf");
+    font-weight: normal;
+}
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -11,6 +16,7 @@ body {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     background-color: whitesmoke;
+    font-family: "sensation";
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -148,10 +154,21 @@ a:hover {
 #reservation {
     border: 1px dashed black;
     text-align: center;
-    margin: 10px;
+    margin: 10px;    
+}
+
+#reservation h3 {
+    text-transform: uppercase;
 }
 #from {
     display: none;
+}
+#reservation p{
+    font-weight: bold;
+}
+span{
+    font-style: italic;
+    font-weight: normal;
 }
 
 #canvas {

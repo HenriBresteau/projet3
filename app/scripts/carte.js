@@ -37,7 +37,14 @@ oXhr.onload = function () {
 
     }
     function afficherCanvas() {
+        var para = document.createElement("p");
+        var node = document.createTextNode("Signature : ");
+        para.appendChild(node);
+        var fElt = document.getElementById('from');
+        fElt.appendChild(para);
+
         var canvasElt = document.querySelector('canvas');
+
         canvasElt.style.display = "initial";
         canvasElt.style.backgroundColor = "lightgray";
         var fromElt = document.getElementById('from');
@@ -47,6 +54,7 @@ oXhr.onload = function () {
     function rendreIndispoonible(i) {
         if (data[i].status === 'Indisponible') {
             document.querySelector('.indisponible').style.color = 'red';
+            document.querySelector('.indisponible').style.fontWeight = "600";
             document.getElementById('reserver').disabled = true;
         } else {
             document.getElementById('reserver').disabled = false;
@@ -62,13 +70,12 @@ oXhr.onload = function () {
         couleurDispo(i);
     };
     function couleurDispo(i) {
-        console.log(data[i].available_bike_stands);
         var disponibleElt = document.querySelector('.disponible');
         if (data[i].available_bike_stands > 0) {
             disponibleElt.style.color = "green";
         } else {
             disponibleElt.style.color = "red";
-            disponibleElt.style.fontWeight="600";
+            disponibleElt.style.fontWeight = "600";
         }
     }
 
