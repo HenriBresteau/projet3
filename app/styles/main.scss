@@ -198,7 +198,9 @@ button[disabled], button:disabled:hover{
   background-color: #cccccc !important;
   color: #666666 !important;
 }
-
+#formatNom, #formatPrenom{
+    font-size: smaller;
+}
 #canvas {
     border: thick double #8478b8;
     display: none;

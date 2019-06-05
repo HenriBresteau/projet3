@@ -51,8 +51,6 @@ class CanvasObjet {
         }
     }
 
-
-
     // Dessin du canvas
     canvasResult() {
         if (this.draw) {
