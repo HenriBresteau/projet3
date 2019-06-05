@@ -30,7 +30,7 @@ oXhr.onload = function () {
 
         marker.addEventListener("click", function () {
             afficherRéservation(i);
-            rendreIndispoonible(i);
+            rendreIndisponible(i);
             afficherCanvas();
         });
 
@@ -46,7 +46,7 @@ oXhr.onload = function () {
         signatureElt.style.display = "initial";
     }
 
-    function rendreIndispoonible(i) {
+    function rendreIndisponible(i) {
         if (data[i].status === 'Indisponible' || data[i].available_bike_stands === 0) {
             document.querySelector('.indisponible').style.color = 'red';
             document.querySelector('.indisponible').style.fontWeight = "600";
