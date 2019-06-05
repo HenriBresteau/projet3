@@ -47,7 +47,7 @@ oXhr.onload = function () {
     }
 
     function rendreIndispoonible(i) {
-        if (data[i].status === 'Indisponible') {
+        if (data[i].status === 'Indisponible' || data[i].available_bike_stands === 0) {
             document.querySelector('.indisponible').style.color = 'red';
             document.querySelector('.indisponible').style.fontWeight = "600";
             document.getElementById('reserver').disabled = true;

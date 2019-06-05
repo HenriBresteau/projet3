@@ -1,8 +1,9 @@
-@font-face{
+@font-face {
     font-family: "sensation";
     src: url("font/Sansation_Regular.ttf");
     font-weight: normal;
 }
+
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -88,7 +89,7 @@ a:hover {
     color: #585858;
 }
 
-.carousel1 {
+#carousel1 {
     margin-bottom: 30px;
 }
 
@@ -118,7 +119,7 @@ a:hover {
 }
 
 .carousel_next,
-.carousel_prev {
+.carousel_prev, .carousel_play, .carousel_pause {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -134,7 +135,8 @@ a:hover {
 }
 
 .carousel_next:hover,
-.carousel_prev:hover {
+.carousel_prev:hover, .carousel_play:hover,
+.carousel_pause:hover {
     transform: scale(1.2);
 }
 
@@ -143,7 +145,18 @@ a:hover {
     right: auto;
     left: 0px;
 }
-
+.carousel_play,
+.carousel_pause {
+    top : 90%;
+}
+.carousel_play{
+    background-image: url(../images/play.png);
+    left: 45%;
+}
+.carousel_pause{
+    background-image: url(../images/pause.png);
+    left: 55%;
+}
 // ---- CARTE ----//
 #mapid {
     height: 280px;
@@ -154,31 +167,52 @@ a:hover {
 #reservation {
     border: 1px dashed black;
     text-align: center;
-    margin: 10px;    
+    margin: 10px;
+    padding-top: 10px;
 }
 
 #reservation h3 {
     text-transform: uppercase;
+    padding-bottom: 15px;
+    border-bottom: .05rem solid #e5e5e5;
+
 }
-#from, #signature{
+
+
+#from,
+#signature {
     display: none;
 }
-#reservation p{
+
+#reservation p {
     font-weight: bold;
 }
-span{
+
+span {
     font-style: italic;
     font-weight: normal;
 }
+button:disabled,
+button[disabled], button:disabled:hover{
+  border: 1px solid #999999;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+}
 
 #canvas {
-    border: 1px solid #000;
+    border: thick double #8478b8;
     display: none;
-    animation: bounce 1s ease ;
+    animation: bounce 1s ease;
 }
-@keyframes bounce{
-    from {transform: translateX(-60px);}
-    to   {transform: translateX(0px);}
+
+@keyframes bounce {
+    from {
+        transform: translateX(-60px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
 }
 
 /* Custom page footer */

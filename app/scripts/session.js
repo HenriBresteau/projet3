@@ -3,6 +3,5 @@ class SessionStorage {
         
     }
     
-    
 }
 var session = new SessionStorage();

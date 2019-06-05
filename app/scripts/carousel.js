@@ -13,7 +13,7 @@ class Carousel {
         this.root.setAttribute('tabindex', '0');
         this.root.appendChild(this.container);
         this.element.appendChild(this.root);
-
+        
 
         this.items = children.map((child) => {
             let item = this.createDivWithClass('carousel_item');
@@ -23,7 +23,7 @@ class Carousel {
             return item;
         });
         this.setStyle();
-        this.reformatCss();
+        this.reformatCss(0);
         //Evenements
         this.createNavigation();
         this.root / addEventListener('keyup', e => {
@@ -32,7 +32,13 @@ class Carousel {
             } else if (e.key === "ArrowLeft" || e.key === 'Left') {
                 this.prev();
             }
-        })
+            if (e.key === 'ArrowUp' || e.key === 'Up') {
+                this.play();
+            } else if (e.key === 'ArrowDown' || e.key === 'Down') {
+                this.pause();
+            }
+        });
+        this.interval=0;
     }
     setStyle() {  //Applique les bonnes dimensions aux éléments du carousel
         let ratio = this.items.length / this.options.slidesVisibles;
@@ -46,12 +52,23 @@ class Carousel {
     createNavigation() {
         let nextButton = this.createDivWithClass('carousel_next');
         let prevButton = this.createDivWithClass('carousel_prev');
+        let playButton = this.createDivWithClass('carousel_play');
+        let pauseButton = this.createDivWithClass('carousel_pause');
         this.root.appendChild(nextButton);
         this.root.appendChild(prevButton);
+        this.root.appendChild(playButton);
+        this.root.appendChild(pauseButton);
         nextButton.addEventListener('click', this.next.bind(this));
         prevButton.addEventListener('click', this.prev.bind(this));
+        playButton.addEventListener('click', this.play.bind(this));
+        pauseButton.addEventListener('click', this.pause.bind(this));
     }
-
+    play() { 
+        this.interval = window.setInterval(() => this.next(),3000);
+    }
+    pause() {
+        clearInterval(this.interval);
+    }
     next() {
         this.goToItem(this.currentItem + this.options.slidesToScroll);
     }
