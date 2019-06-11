@@ -120,13 +120,14 @@
     </div>
     <div id="reservation">
       <h3> Réservation :</h3>
+      <p> Station : <span class="station"></span></p>
       <p> Adresse : <span class="adresse"> </span></p>
       <p>Nombre de places total : <span class="place"> </span></p>
       <p>Nombre de vélo disponible(s) : <span class="disponible"></span></p>
       <p>
         <from id="from">
-          <label for="nom">Nom : </label>
-          <input type="text" class="nom" placeholder="Votre nom..." id="nom" required></br>
+          <label for="nom">NOM : </label>
+          <input type="text" class="nom" placeholder="Votre NOM..." id="nom" required></br>
           <span id="formatNom"> Format attendu : "NOM" </span></br>
           <label for="prenom">Prénom :</label>
           <input type="text" class="prenom" placeholder="Votre prenom..." id="prenom" required></br>
@@ -144,6 +145,11 @@
         <button type="submit" class="btn btn-outline-primary" id="reserver">Réserver</button>
         <button class="btn btn-outline-warning" type="reset" value="Reset" id="btn_clear">Effacer </button>
       </p>
+    </div>
+    <div id="recap">
+      <h3> Récapitulatif : </h3>
+      <p> Vous avez réserver un vélo de la station <span id="station"></span> au nom de <span id="nomResa"></span>, <span id="prenomResa"></span></p>
+      <p> Temps restant pour votre réservation : <span id="min"> 20 </span> : <span id="sec"> 00</span></p>
     </div>
 
     <div class="footer">

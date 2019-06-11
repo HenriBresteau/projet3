@@ -1,3 +1,6 @@
+document.getElementById('reserver').disabled = true;
+
+
 var lyon = [45.750000, 4.850000];
 //création de la map 
 var map = L.map('mapid').setView(lyon, 13);
@@ -32,6 +35,7 @@ oXhr.onload = function () {
             afficherRéservation(i);
             rendreIndisponible(i);
             afficherCanvas();
+            
         });
 
 
@@ -50,12 +54,14 @@ oXhr.onload = function () {
         if (data[i].status === 'Indisponible' || data[i].available_bike_stands === 0) {
             document.querySelector('.indisponible').style.color = 'red';
             document.querySelector('.indisponible').style.fontWeight = "600";
-            document.getElementById('reserver').disabled = true;
+            
         } else {
-            document.getElementById('reserver').disabled = false;
+            document.getElementById('reserver').disabled = true;
         }
     }
     function afficherRéservation(i) {
+        var stationElt = document.querySelector('.station');
+        stationElt.textContent = data[i].name;
         var adresseElt = document.querySelector('.adresse');
         adresseElt.textContent = data[i].address;
         var placeElt = document.querySelector('.place');
