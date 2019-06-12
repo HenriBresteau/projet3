@@ -3,6 +3,7 @@ class SessionStorage {
         this.nom = document.getElementById('nom');
         this.prenom = document.getElementById('prenom');
         this.reserverElt = document.getElementById('reserver');
+        this.effacerElt = document.getElementById('btn_clear');
         this.station = document.querySelector('.station');
         this.missNom = document.getElementById('missNom');
         this.formatNom = document.getElementById('formatNom');
@@ -10,10 +11,16 @@ class SessionStorage {
         this.recapElt = document.getElementById('recap');
         this.minElt = document.getElementById('min');
         this.secElt = document.getElementById('sec');
-        this.checkInput();
+        this.delayCheck();
         this.afficherResa();
         this.chrono();
+        this.counterSec = 0;
+        this.counterMin = 0;
     }
+    delayCheck() {
+        var timeoutId = window.setTimeout(this.checkInput(), 5000);
+    }
+
     checkInput() { // Vérifier Nom et Prénom présent + Format "NOM" et "Prénom"        
         var nomValid = /^[zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+([-'\s][zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+)?$/; //REGEX [BRESTEAU]
         var prenomValid = /^[zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; //REGEX [Henri]
@@ -56,7 +63,9 @@ class SessionStorage {
     afficherResa() {
         var that = this;
         this.reserverElt.addEventListener("click", function (e) {
-            that.recapElt.style.display = "initial";
+            that.recapElt.style.display = "block";
+            that.recapElt.style.backgroundColor = "peachpuff";
+            that.recapElt.style.padding = "10px";
             var stationReserver = document.getElementById('station');
             stationReserver.textContent = that.station.textContent;
             var nomResa = document.querySelector('#nomResa');
@@ -67,41 +76,55 @@ class SessionStorage {
     }
     chrono() {
         var that = this;
-        var counterSec = 10;
-        var counterMin = 1;
         var intervalId = null;
         var finElt = document.getElementById('fin');
-        finElt.style.display= "none";
+
+        function initialiser() {
+            that.counterSec = 59;
+            that.counterMin = 1;
+            finElt.style.display = "none";
+        }
         function fin() {
             clearInterval(intervalId);
-            finElt.style.display ="initial";
-            finElt.style.color ="red";
+            finElt.style.display = "initial";
+            finElt.style.color = "red";
+            document.getElementById('reserver').disabled = true;
         }
         function bip() {
-            counterSec--;
-            if(counterSec <0){
-                counterSec = 10;
-                counterMin --;
+            that.counterSec--;
+            if (that.counterSec < 0) {
+                that.counterSec = 59;
+                that.counterMin--;
             }
-            if ((counterSec == 0) && (counterMin==0)) {
+            if ((that.counterSec == 0) && (that.counterMin <= 0)) {
                 fin();
-            }             
+            }
             else {
-                that.secElt.innerHTML = counterSec ;
-                that.minElt.innerHTML = counterMin;
+                that.secElt.innerHTML = that.counterSec;
+                sessionStorage.setItem("Secondes :", that.counterSec);
+                that.minElt.innerHTML = that.counterMin;
+                sessionStorage.setItem("Minutes :", that.counterMin);
+                var temps = [that.counterMin, that.counterSec];
+                sessionStorage.setItem("Temps restant : ", temps);
             }
         }
         this.reserverElt.addEventListener("click", function () {
-            intervalId = setInterval(bip, 1000);
-            that.reserverElt.addEventListener("click", function() {
-                clearInterval(intervalId);
-                counterMin = 1;
-                counterSec = 10;
-                finElt.style.display= "none";
+            initialiser();
+            if (!intervalId) {
+                console.log(intervalId);
+                console.log(!intervalId);
                 intervalId = setInterval(bip, 1000);
-            });
+                document.getElementById('reserver').disabled = true;
+            } else {
+                intervalId = null;
+            }
         });
-        
+        this.effacerElt.addEventListener('click', () => {
+            clearInterval(intervalId);
+            console.log('Fin ?');
+            sessionStorage.clear();
+        })
+
     }
 
 }
