@@ -1,6 +1,6 @@
 class CanvasObjet {
     constructor() { //Paramètres du canvas
-        this.canvas = document.getElementById("canvas");
+        this.canvas = document.getElementById('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.ctx.strokeStyle = '#000000';
         this.ctx.lineWidth = 3;
@@ -20,22 +20,22 @@ class CanvasObjet {
     evenements() {
         var self = this;
         //Souris
-        this.canvas.addEventListener("mousedown", function (e) {
+        this.canvas.addEventListener('mousedown', function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
         });
 
-        this.canvas.addEventListener("mousemove", function (e) {
+        this.canvas.addEventListener('mousemove', function (e) {
             self.mousePosition = self.getMposition(e);
             self.canvasResult()
         });
 
-        document.addEventListener("mouseup", function (e) {
+        document.addEventListener('mouseup', function (e) {
             self.draw = false;
         });
 
         //Effacer
-        this.clearButton.addEventListener("click", function (e) {
+        this.clearButton.addEventListener('click', function (e) {
             self.clearCanvas()
         });
     }

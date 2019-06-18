@@ -16,7 +16,7 @@ class Nomlocal {
                 nom: this.nomElt.value,
                 prenom: this.prenomElt.value
             };
-            localStorage.setItem("iden", JSON.stringify(identite));
+            localStorage.setItem('iden', JSON.stringify(identite));
 
 
         })

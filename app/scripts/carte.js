@@ -1,6 +1,5 @@
 document.getElementById('reserver').disabled = true;
 
-
 var lyon = [45.750000, 4.850000];
 //création de la map 
 var map = L.map('mapid').setView(lyon, 13);
@@ -31,7 +30,7 @@ oXhr.onload = function () {
         let marker = L.marker([data[i].position.lat, data[i].position.lng], { icon: myIcon }).addTo(map);
         marker.bindPopup('<h5>' + data[i].name + '</h5> <p>' + data[i].address + ' </p> <p> Etat de station : <span class="indisponible">' + data[i].status + '</span></p><p> Total places : ' + data[i].bike_stands + '</p>');
 
-        marker.addEventListener("click", function () {
+        marker.addEventListener('click', function () {
             afficherRéservation(i);
             rendreIndisponible(i);
             afficherCanvas();
@@ -42,18 +41,18 @@ oXhr.onload = function () {
     }
     function afficherCanvas() {
         var canvasElt = document.querySelector('canvas');
-        canvasElt.style.display = "initial";
-        canvasElt.style.backgroundColor = "lightgray";
+        canvasElt.style.display = 'initial';
+        canvasElt.style.backgroundColor = 'lightgray';
         var fromElt = document.getElementById('from');
-        fromElt.style.display = "initial";
+        fromElt.style.display = 'initial';
         var signatureElt = document.querySelector('#signature');
-        signatureElt.style.display = "initial";
+        signatureElt.style.display = 'initial';
     }
 
     function rendreIndisponible(i) {
         if (data[i].status === 'Indisponible' || data[i].available_bike_stands === 0) {
             document.querySelector('.indisponible').style.color = 'red';
-            document.querySelector('.indisponible').style.fontWeight = "600";
+            document.querySelector('.indisponible').style.fontWeight = '600';
             
         } else {
             document.getElementById('reserver').disabled = true;
@@ -73,10 +72,10 @@ oXhr.onload = function () {
     function couleurDispo(i) {
         var disponibleElt = document.querySelector('.disponible');
         if (data[i].available_bike_stands > 0) {
-            disponibleElt.style.color = "green";
+            disponibleElt.style.color = 'green';
         } else {
-            disponibleElt.style.color = "red";
-            disponibleElt.style.fontWeight = "600";
+            disponibleElt.style.color = 'red';
+            disponibleElt.style.fontWeight = '600';
         }
     }
 

@@ -29,7 +29,7 @@ class Carousel {
         this.root / addEventListener('keyup', e => {
             if (e.key === 'ArrowRight' || e.key === 'Right') {
                 this.next();
-            } else if (e.key === "ArrowLeft" || e.key === 'Left') {
+            } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
                 this.prev();
             }
             if (e.key === 'ArrowUp' || e.key === 'Up') {
@@ -42,9 +42,9 @@ class Carousel {
     }
     setStyle() {  //Applique les bonnes dimensions aux éléments du carousel
         let ratio = this.items.length / this.options.slidesVisibles;
-        this.container.style.width = (100) + "%";
-        this.items.forEach(item => item.style.width = ((100 / this.options.slidesVisibles) / ratio) + "%");
-        this.items.forEach(item => item.style.transformStyle = "preserve-3d");
+        this.container.style.width = (100) + '%';
+        this.items.forEach(item => item.style.width = ((100 / this.options.slidesVisibles) / ratio) + '%');
+        this.items.forEach(item => item.style.transformStyle = 'preserve-3d');
 
     }
 

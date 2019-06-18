@@ -24,7 +24,7 @@ class SessionStorage {
     checkInput() { // Vérifier Nom et Prénom présent + Format "NOM" et "Prénom"        
         var nomValid = /^[zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+([-'\s][zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+)?$/; //REGEX [BRESTEAU]
         var prenomValid = /^[zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; //REGEX [Henri]
-        this.reserverElt.addEventListener("mouseover", validation);
+        this.reserverElt.addEventListener('mouseover', validation);
         var self = this;
         function validation(event) {
             var nomVide = self.nom.validity.valueMissing; //Si le champ est vide !()=>rempli
@@ -37,7 +37,7 @@ class SessionStorage {
                 self.missNom.textContent = 'Attention ! Nom et prenom sont obligatoire pour réserver !';
                 self.missNom.style.color = 'red';
             } else {
-                self.missNom.textContent = "";
+                self.missNom.textContent = '';
             }
             if (testFromatNom == false) {
                 self.formatNom.style.color = 'orange';
@@ -62,10 +62,10 @@ class SessionStorage {
     }
     afficherResa() {
         var that = this;
-        this.reserverElt.addEventListener("click", function (e) {
-            that.recapElt.style.display = "block";
-            that.recapElt.style.backgroundColor = "peachpuff";
-            that.recapElt.style.padding = "10px";
+        this.reserverElt.addEventListener('click', function (e) {
+            that.recapElt.style.display = 'block';
+            that.recapElt.style.backgroundColor = 'peachpuff';
+            that.recapElt.style.padding = '10px';
             var stationReserver = document.getElementById('station');
             stationReserver.textContent = that.station.textContent;
             var nomResa = document.querySelector('#nomResa');
@@ -82,12 +82,12 @@ class SessionStorage {
         function initialiser() {
             that.counterSec = 59;
             that.counterMin = 1;
-            finElt.style.display = "none";
+            finElt.style.display = 'none';
         }
         function fin() {
             clearInterval(intervalId);
-            finElt.style.display = "initial";
-            finElt.style.color = "red";
+            finElt.style.display = 'initial';
+            finElt.style.color = 'red';
             document.getElementById('reserver').disabled = true;
         }
         function bip() {
@@ -96,28 +96,23 @@ class SessionStorage {
                 that.counterSec = 59;
                 that.counterMin--;
             }
+
             if ((that.counterSec == 0) && (that.counterMin <= 0)) {
                 fin();
             }
             else {
                 that.secElt.innerHTML = that.counterSec;
-                sessionStorage.setItem("Secondes :", that.counterSec);
+                sessionStorage.setItem('Secondes :', that.counterSec);
                 that.minElt.innerHTML = that.counterMin;
-                sessionStorage.setItem("Minutes :", that.counterMin);
-                var temps = [that.counterMin, that.counterSec];
-                sessionStorage.setItem("Temps restant : ", temps);
+                sessionStorage.setItem('Minutes :', that.counterMin);
             }
         }
-        this.reserverElt.addEventListener("click", function () {
+        this.reserverElt.addEventListener('click', function () {
+            fin();
             initialiser();
-            if (!intervalId) {
-                console.log(intervalId);
-                console.log(!intervalId);
-                intervalId = setInterval(bip, 1000);
-                document.getElementById('reserver').disabled = true;
-            } else {
-                intervalId = null;
-            }
+            intervalId = setInterval(bip, 1000);
+            document.getElementById('reserver').disabled = true;
+
         });
         this.effacerElt.addEventListener('click', () => {
             clearInterval(intervalId);
