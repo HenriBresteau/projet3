@@ -81,7 +81,7 @@ class SessionStorage {
 
         function initialiser() {
             that.counterSec = 59;
-            that.counterMin = 1;
+            that.counterMin = 19;
             finElt.style.display = 'none';
         }
         function fin() {

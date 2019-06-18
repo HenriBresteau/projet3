@@ -1,5 +1,5 @@
 document.getElementById('reserver').disabled = true;
-
+var L = window.L;
 var lyon = [45.750000, 4.850000];
 //création de la map 
 var map = L.map('mapid').setView(lyon, 13);
