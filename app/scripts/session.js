@@ -11,14 +11,11 @@ class SessionStorage {
         this.recapElt = document.getElementById('recap');
         this.minElt = document.getElementById('min');
         this.secElt = document.getElementById('sec');
-        this.delayCheck();
+        this.checkInput();
         this.afficherResa();
         this.chrono();
         this.counterSec = 0;
         this.counterMin = 0;
-    }
-    delayCheck() {
-        var timeoutId = window.setTimeout(this.checkInput(), 5000);
     }
 
     checkInput() { // Vérifier Nom et Prénom présent + Format "NOM" et "Prénom"        

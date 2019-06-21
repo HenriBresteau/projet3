@@ -5,7 +5,6 @@ class Nomlocal {
         this.reserverElt = document.getElementById('reserver');
         this.effacerElt = document.getElementById('btn_clear');
         this.stocker();
-        this.lecture();
         this.effacer();
     }
     stocker() {
@@ -14,27 +13,24 @@ class Nomlocal {
             localStorage.clear();
             var identite = {
                 nom: this.nomElt.value,
-                prenom: this.prenomElt.value
+                prenom: this.prenomElt.value,
             };
             localStorage.setItem('iden', JSON.stringify(identite));
-
+            var id = JSON.parse(localStorage.getItem('iden'));
+            this.nomElt.value = id.nom;
+            this.prenomElt.value = id.prenom;
 
         })
         //} else {
-        // localStorage non supporté
+        //console.log('localStorage non supporté');
         //}
     }
-    lecture() {
-        var identite = JSON.parse(localStorage.getItem('iden'));
-        this.nomElt.value = identite.nom;
-        this.prenomElt.value = identite.prenom;
-    }
-    effacer(){ 
-    this.effacerElt.addEventListener('click', () => {
-        this.nomElt.value ='';
-        this.prenomElt.value='';
-        return false;
-    })
+
+    effacer() {
+        this.effacerElt.addEventListener('click', () => {
+            this.nomElt.value = '';
+            this.prenomElt.value = '';
+        })
     }
 }
 
