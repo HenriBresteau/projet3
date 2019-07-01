@@ -12,7 +12,6 @@ class SessionStorage {
         this.minElt = document.getElementById('min');
         this.secElt = document.getElementById('sec');
         this.checkInput();
-        this.afficherResa();
         this.chrono();
         this.counterSec = 0;
         this.counterMin = 0;
@@ -21,16 +20,15 @@ class SessionStorage {
     checkInput() { // Vérifier Nom et Prénom présent + Format "NOM" et "Prénom"        
         var nomValid = /^[zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+([-'\s][zA-ZéèîïÉÈÎÏ][zA-ZéèîïÉÈÎÏ]+)?$/; //REGEX [BRESTEAU]
         var prenomValid = /^[zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; //REGEX [Henri]
-        this.reserverElt.addEventListener('mouseover', validation);
+
+        this.reserverElt.addEventListener('mouseover', validation); 
         var self = this;
-        function validation(event) {
+        function validation() {
             var nomVide = self.nom.validity.valueMissing; //Si le champ est vide !()=>rempli
             var prenomVide = self.prenom.validity.valueMissing;
             var testFromatNom = nomValid.test(self.nom.value);
             var testFromatPrenom = prenomValid.test(self.prenom.value);
-
             if (nomVide || prenomVide) {
-                //event.preventDefault();
                 self.missNom.textContent = 'Attention ! Nom et prenom sont obligatoire pour réserver !';
                 self.missNom.style.color = 'red';
             } else {
@@ -50,27 +48,24 @@ class SessionStorage {
             }
             // Si le nom et Prenom sont valide = BTN disponible
             if (!(nomVide) && !(prenomVide) && (testFromatNom == true) && (testFromatPrenom == true)) {
-                self.reserverElt.disabled = false;
+                self.reserverElt.removeAttribute("disabled");
+                self.reserverElt.addEventListener('click', function (e) {
+                    self.recapElt.style.display = 'block';
+                    self.recapElt.style.backgroundColor = 'peachpuff';
+                    self.recapElt.style.padding = '10px';
+                    var stationReserver = document.getElementById('station');
+                    stationReserver.textContent = self.station.textContent;
+                    nomResa.textContent = self.nom.value;
+                    prenomResa.textContent = self.prenom.value;
+                });
+
             } else {
-                self.reserverElt.disabled = true;
+                self.recapElt.style.display = 'none';
             }
         }
 
     }
-    afficherResa() {
-        var that = this;
-        this.reserverElt.addEventListener('click', function (e) {
-            that.recapElt.style.display = 'block';
-            that.recapElt.style.backgroundColor = 'peachpuff';
-            that.recapElt.style.padding = '10px';
-            var stationReserver = document.getElementById('station');
-            stationReserver.textContent = that.station.textContent;
-            var nomResa = document.querySelector('#nomResa');
-            nomResa.textContent = that.nom.value;
-            var prenomResa = document.querySelector('#prenomResa');
-            prenomResa.textContent = that.prenom.value;
-        });
-    }
+
     chrono() {
         var that = this;
         var intervalId = null;
@@ -85,7 +80,6 @@ class SessionStorage {
             clearInterval(intervalId);
             finElt.style.display = 'initial';
             finElt.style.color = 'red';
-            document.getElementById('reserver').disabled = true;
         }
         function bip() {
             that.counterSec--;
@@ -108,12 +102,10 @@ class SessionStorage {
             fin();
             initialiser();
             intervalId = setInterval(bip, 1000);
-            document.getElementById('reserver').disabled = true;
 
         });
         this.effacerElt.addEventListener('click', () => {
             clearInterval(intervalId);
-            console.log('Fin ?');
             sessionStorage.clear();
         })
 

@@ -1,4 +1,5 @@
-document.getElementById('reserver').disabled = true;
+document.getElementById('reserver').setAttribute("disabled", "disabled");
+
 var L = window.L;
 var lyon = [45.750000, 4.850000];
 //création de la map 
@@ -22,7 +23,6 @@ oXhr.onload = function () {
         });
         if (data[i].status === 'CLOSED') {
             data[i].status = 'Indisponible';
-
         }
         else {
             data[i].status = 'Disponible';
@@ -34,7 +34,6 @@ oXhr.onload = function () {
             afficherRéservation(i);
             rendreIndisponible(i);
             afficherCanvas();
-            
         });
 
 
@@ -53,9 +52,8 @@ oXhr.onload = function () {
         if (data[i].status === 'Indisponible' || data[i].available_bike_stands === 0) {
             document.querySelector('.indisponible').style.color = 'red';
             document.querySelector('.indisponible').style.fontWeight = '600';
-            
         } else {
-            document.getElementById('reserver').disabled = true;
+            document.getElementById('reserver').removeAttribute("disabled");
         }
     }
     function afficherRéservation(i) {

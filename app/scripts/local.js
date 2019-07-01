@@ -8,22 +8,22 @@ class Nomlocal {
         this.effacer();
     }
     stocker() {
-        //if (localStorage && sessionStorage) {
-        this.reserverElt.addEventListener('click', () => {
-            localStorage.clear();
-            var identite = {
-                nom: this.nomElt.value,
-                prenom: this.prenomElt.value,
-            };
-            localStorage.setItem('iden', JSON.stringify(identite));
-            var id = JSON.parse(localStorage.getItem('iden'));
-            this.nomElt.value = id.nom;
-            this.prenomElt.value = id.prenom;
+        if (localStorage && sessionStorage) {
+            this.reserverElt.addEventListener('click', () => {
+                localStorage.clear();
+                var identite = {
+                    nom: this.nomElt.value,
+                    prenom: this.prenomElt.value,
+                };
+                localStorage.setItem('iden', JSON.stringify(identite));
+                var id = JSON.parse(localStorage.getItem('iden'));
+                this.nomElt.value = id.nom;
+                this.prenomElt.value = id.prenom;
 
-        })
-        //} else {
-        //console.log('localStorage non supporté');
-        //}
+            })
+        } else {
+            console.log('localStorage non supporté');
+        }
     }
 
     effacer() {
